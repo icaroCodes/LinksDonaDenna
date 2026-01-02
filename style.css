@@ -1,5 +1,5 @@
 :root {
-    --color-brand-primary: #7f5a8e;
+    --color-brand-primary: #12274C;
     --color-brand-secondary: #9a81a4;
     --color-text-light: #1e1e1e;
     --color-text-dark: #f0f0f0;
@@ -82,7 +82,8 @@ header {
 }
 
 .tagline {
-    color: #777;
+    color: var(--color-text-light); 
+    opacity: 0.7; 
     font-size: 0.875rem;
     margin-top: 5px;
 }
@@ -107,8 +108,8 @@ header {
     background-color: var(--color-card-light);
     color: var(--color-text-light);
     border: 2px solid var(--color-brand-primary);
-    box-shadow: var(--shadow-elevation);            
-    overflow: hidden;
+    box-shadow: var(--shadow-elevation);
+    overflow: hidden; 
     transition: all 0.3s ease;
 }
 
@@ -125,9 +126,9 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--hover-color); 
+    background-color: var(--hover-color);
     transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
     z-index: 1;
 }
 
@@ -201,11 +202,61 @@ header {
 #theme-toggle:hover {
     transform: scale(1.1);
 }
-
         
 footer {
     margin-top: 40px;
     text-align: center;
     font-size: 0.75rem;
     color: #999;
+}
+
+footer a {
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--color-brand-secondary);
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-brand-secondary);
+    transition: all 0.3s ease-out;
+}
+
+footer a:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    
+    .container {
+        max-width: 600px;
+    }
+
+    .link-card {
+        font-size: 1.25rem;
+        padding: 18px;
+    }
+
+    .link-card i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 650px;
+        margin-top: 70px;
+    }
 }
